@@ -149,7 +149,7 @@ export type Options = {
   /**
    * Code splitting
    * Default to `true` for ESM, `false` for CJS.
-   * 
+   *
    * You can set it to `true` explicitly, and may want to disable code splitting sometimes: [`#255`](https://github.com/egoist/tsup/issues/255)
    */
   splitting?: boolean
@@ -247,7 +247,9 @@ export type NormalizedOptions = Omit<
   'dts' | 'format'
 > & {
   dts?: DtsConfig
-  experimentalDts?: ExperimentalDtsConfig
+  experimentalDts?: ExperimentalDtsConfig & {
+    entry: { [entryAlias: string]: string }
+  }
   tsconfigResolvePaths: Record<string, string[]>
   tsconfigDecoratorMetadata?: boolean
   format: Format[]

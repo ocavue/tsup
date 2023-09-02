@@ -2,7 +2,7 @@ import ts from 'typescript'
 import { handleError } from './errors'
 import { ExportDeclaration } from './exports'
 import { createLogger } from './log'
-import { Entry, ExperimentalDtsConfig, NormalizedOptions } from './options'
+import { NormalizedOptions } from './options'
 import { ensureTempDeclarationDir, toAbsolutePath } from './utils'
 
 const logger = createLogger()
@@ -169,13 +169,13 @@ const parseCompilerOptions = (
   return parsed.options
 }
 
-function emit(entry: Entry, dts?: ExperimentalDtsConfig) {
+function emit(entry: { [entryAlias: string]: string }, compilerOptions?: any) {
   let declarationDir = ensureTempDeclarationDir()
 
-  let fileNames: string[] = Array.isArray(entry) ? entry : Object.values(entry)
+  let fileNames: string[] = Object.values(entry)
 
   let options: ts.CompilerOptions = parseCompilerOptions({
-    ...dts?.compilerOptions,
+    ...compilerOptions,
 
     // Enable declaration emit and disable javascript emit
     noEmit: false,
@@ -198,7 +198,8 @@ export function runTypeScriptCompiler(options: NormalizedOptions) {
       return `${Math.floor(Date.now() - start)}ms`
     }
     logger.info('tsc', 'Build start')
-    const exports = emit(options.entry, options.experimentalDts)
+    const dtsOptions = options.experimentalDts!
+    const exports = emit(dtsOptions.entry, dtsOptions.compilerOptions)
     logger.success('tsc', `⚡️ Build success in ${getDuration()}`)
     return exports
   } catch (error) {

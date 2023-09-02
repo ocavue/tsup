@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import { Worker } from 'worker_threads'
-import { removeFiles, debouncePromise, slash, MaybePromise } from './utils'
+import { removeFiles, debouncePromise, slash, MaybePromise, toObjectEntry } from './utils'
 import { getAllDepsHash, loadTsupConfig } from './load'
 import glob from 'globby'
 import { loadTsConfig } from 'bundle-require'
@@ -128,6 +128,14 @@ const normalizeOptions = async (
         ...(tsconfig.data.compilerOptions || {}),
         ...(options.experimentalDts.compilerOptions || {}),
       }
+      let entry = options.experimentalDts.entry || options.entry
+      if (typeof entry === 'string') {
+        entry = [entry]
+      }
+      if (Array.isArray(entry)) {
+        entry = toObjectEntry(entry)
+      }
+      options.experimentalDts.entry = entry
     }
     if (!options.target) {
       options.target = tsconfig.data?.compilerOptions?.target?.toLowerCase()

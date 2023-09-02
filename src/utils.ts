@@ -2,7 +2,7 @@ import fs from 'fs'
 import glob from 'globby'
 import resolveFrom from 'resolve-from'
 import strip from 'strip-json-comments'
-import { Format } from './options'
+import { Format, NormalizedOptions } from './options'
 import path from 'path'
 
 export type MaybePromise<T> = T | Promise<T>
@@ -232,4 +232,14 @@ export function trimDtsExtension(fileName: string) {
 export function writeFileSync(filePath: string, content: string) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true })
   fs.writeFileSync(filePath, content)
+}
+
+export function normalizeExperimentalDtsDtsEntry(options: NormalizedOptions) {
+  const dtsOptions = options.experimentalDts || {}
+  dtsOptions.entry = dtsOptions.entry || options.entry
+  if (Array.isArray(dtsOptions.entry) && dtsOptions.entry.length > 1) {
+    dtsOptions.entry = toObjectEntry(dtsOptions.entry)
+  }
+  options.experimentalDts = dtsOptions
+
 }
