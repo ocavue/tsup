@@ -18,6 +18,7 @@ import { Format, NormalizedOptions } from './options'
 import {
   defaultOutExtension,
   ensureTempDeclarationDir,
+  normalizeExperimentalDtsEntry,
   toAbsolutePath,
   writeFileSync,
 } from './utils'
@@ -101,7 +102,7 @@ async function rollupDtsFiles(
     options.tsconfig || 'tsconfig.json'
   )
 
-  const entry = options.experimentalDts!.entry
+  const entry = normalizeExperimentalDtsEntry(options)
   for (let [out, sourceFileName] of Object.entries(entry)) {
     sourceFileName = toAbsolutePath(sourceFileName)
     const outFileName = path.join(outDir, out + dtsExtension)

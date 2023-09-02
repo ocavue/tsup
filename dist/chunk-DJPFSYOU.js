@@ -248,6 +248,17 @@ function writeFileSync(filePath, content) {
   _fs2.default.mkdirSync(_path2.default.dirname(filePath), { recursive: true });
   _fs2.default.writeFileSync(filePath, content);
 }
+function normalizeExperimentalDtsEntry(options) {
+  const dtsOptions = options.experimentalDts || {};
+  let entry = dtsOptions.entry || options.entry;
+  if (typeof entry === "string") {
+    entry = [entry];
+  }
+  if (Array.isArray(entry)) {
+    entry = toObjectEntry(entry);
+  }
+  return entry;
+}
 
 
 
@@ -269,4 +280,5 @@ function writeFileSync(filePath, content) {
 
 
 
-exports.__require = __require; exports.__esm = __esm; exports.__commonJS = __commonJS; exports.__export = __export; exports.__toESM = __toESM; exports.__toCommonJS = __toCommonJS; exports.getPostcss = getPostcss; exports.localRequire = localRequire; exports.removeFiles = removeFiles; exports.debouncePromise = debouncePromise; exports.slash = slash; exports.truthy = truthy; exports.jsoncParse = jsoncParse; exports.defaultOutExtension = defaultOutExtension; exports.ensureTempDeclarationDir = ensureTempDeclarationDir; exports.toObjectEntry = toObjectEntry; exports.toAbsolutePath = toAbsolutePath; exports.trimDtsExtension = trimDtsExtension; exports.writeFileSync = writeFileSync;
+
+exports.__require = __require; exports.__esm = __esm; exports.__commonJS = __commonJS; exports.__export = __export; exports.__toESM = __toESM; exports.__toCommonJS = __toCommonJS; exports.getPostcss = getPostcss; exports.localRequire = localRequire; exports.removeFiles = removeFiles; exports.debouncePromise = debouncePromise; exports.slash = slash; exports.truthy = truthy; exports.jsoncParse = jsoncParse; exports.defaultOutExtension = defaultOutExtension; exports.ensureTempDeclarationDir = ensureTempDeclarationDir; exports.toObjectEntry = toObjectEntry; exports.toAbsolutePath = toAbsolutePath; exports.trimDtsExtension = trimDtsExtension; exports.writeFileSync = writeFileSync; exports.normalizeExperimentalDtsEntry = normalizeExperimentalDtsEntry;

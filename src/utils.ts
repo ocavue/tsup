@@ -234,12 +234,17 @@ export function writeFileSync(filePath: string, content: string) {
   fs.writeFileSync(filePath, content)
 }
 
-export function normalizeExperimentalDtsDtsEntry(options: NormalizedOptions) {
+export function normalizeExperimentalDtsEntry(options: NormalizedOptions): {
+  [entryAlias: string]: string
+} {
   const dtsOptions = options.experimentalDts || {}
-  dtsOptions.entry = dtsOptions.entry || options.entry
-  if (Array.isArray(dtsOptions.entry) && dtsOptions.entry.length > 1) {
-    dtsOptions.entry = toObjectEntry(dtsOptions.entry)
-  }
-  options.experimentalDts = dtsOptions
+  let entry = dtsOptions.entry || options.entry
 
+  if (typeof entry === 'string') {
+    entry = [entry]
+  }
+  if (Array.isArray(entry)) {
+    entry = toObjectEntry(entry)
+  }
+  return entry
 }

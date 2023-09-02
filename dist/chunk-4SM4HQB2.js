@@ -1,13 +1,13 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { newObj[key] = obj[key]; } } } newObj.default = obj; return newObj; } }
 
-var _chunkYKICXVH5js = require('./chunk-YKICXVH5.js');
+var _chunkDJPFSYOUjs = require('./chunk-DJPFSYOU.js');
 
 // src/errors.ts
 var _worker_threads = require('worker_threads');
 
 // node_modules/.pnpm/colorette@2.0.16/node_modules/colorette/index.js
 var colorette_exports = {};
-_chunkYKICXVH5js.__export.call(void 0, colorette_exports, {
+_chunkDJPFSYOUjs.__export.call(void 0, colorette_exports, {
   bgBlack: () => bgBlack,
   bgBlackBright: () => bgBlackBright,
   bgBlue: () => bgBlue,

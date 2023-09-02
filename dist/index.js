@@ -11,15 +11,11 @@ var _chunkUWWD4V4Jjs = require('./chunk-UWWD4V4J.js');
 
 
 
-var _chunk6RV4DAX3js = require('./chunk-6RV4DAX3.js');
+var _chunkBWKNFVFOjs = require('./chunk-BWKNFVFO.js');
 
 
 
-var _chunkAQ6YY5U3js = require('./chunk-AQ6YY5U3.js');
-
-
-
-
+var _chunk4SM4HQB2js = require('./chunk-4SM4HQB2.js');
 
 
 
@@ -32,20 +28,25 @@ var _chunkAQ6YY5U3js = require('./chunk-AQ6YY5U3.js');
 
 
 
-var _chunkYKICXVH5js = require('./chunk-YKICXVH5.js');
+
+
+
+
+
+var _chunkDJPFSYOUjs = require('./chunk-DJPFSYOU.js');
 
 // node_modules/.pnpm/consola@2.15.3/node_modules/consola/dist/consola.js
-var require_consola = _chunkYKICXVH5js.__commonJS.call(void 0, {
+var require_consola = _chunkDJPFSYOUjs.__commonJS.call(void 0, {
   "node_modules/.pnpm/consola@2.15.3/node_modules/consola/dist/consola.js"(exports, module) {
     "use strict";
     function u(u2) {
       return u2 && "object" == typeof u2 && "default" in u2 ? u2.default : u2;
     }
-    var D = u(_chunkYKICXVH5js.__require.call(void 0, "util"));
-    var e = _chunkYKICXVH5js.__require.call(void 0, "path");
-    var t = _chunkYKICXVH5js.__require.call(void 0, "fs");
-    var r = u(_chunkYKICXVH5js.__require.call(void 0, "os"));
-    var n = u(_chunkYKICXVH5js.__require.call(void 0, "tty"));
+    var D = u(_chunkDJPFSYOUjs.__require.call(void 0, "util"));
+    var e = _chunkDJPFSYOUjs.__require.call(void 0, "path");
+    var t = _chunkDJPFSYOUjs.__require.call(void 0, "fs");
+    var r = u(_chunkDJPFSYOUjs.__require.call(void 0, "os"));
+    var n = u(_chunkDJPFSYOUjs.__require.call(void 0, "tty"));
     function s(u2, D2) {
       return u2(D2 = { exports: {} }, D2.exports), D2.exports;
     }
@@ -1159,7 +1160,7 @@ var require_consola = _chunkYKICXVH5js.__commonJS.call(void 0, {
         this.stream.write(JSON.stringify(u2) + "\n");
       }
     };
-    var Gu = "undefined" != typeof __non_webpack_require__ ? __non_webpack_require__ : _chunkYKICXVH5js.__require;
+    var Gu = "undefined" != typeof __non_webpack_require__ ? __non_webpack_require__ : _chunkDJPFSYOUjs.__require;
     var zu = class {
       constructor(u2) {
         if (u2 && u2.log)
@@ -1279,7 +1280,7 @@ var postcssPlugin = ({
     setup(build2) {
       let configCache;
       const getPostcssConfig = async () => {
-        const loadConfig = _chunkYKICXVH5js.__require.call(void 0, "postcss-load-config");
+        const loadConfig = _chunkDJPFSYOUjs.__require.call(void 0, "postcss-load-config");
         if (configCache) {
           return configCache;
         }
@@ -1341,7 +1342,7 @@ var postcssPlugin = ({
         }
         const { plugins, options } = await getPostcssConfig();
         if (plugins && plugins.length > 0) {
-          const postcss = _chunkYKICXVH5js.getPostcss.call(void 0, );
+          const postcss = _chunkDJPFSYOUjs.getPostcss.call(void 0, );
           if (!postcss) {
             return {
               errors: [
@@ -1403,8 +1404,8 @@ var sveltePlugin = ({
         };
       });
       build2.onLoad({ filter: /\.svelte$/ }, async (args) => {
-        svelte = svelte || _chunkYKICXVH5js.localRequire.call(void 0, "svelte/compiler");
-        sveltePreprocessor = sveltePreprocessor || _chunkYKICXVH5js.localRequire.call(void 0, "svelte-preprocess");
+        svelte = svelte || _chunkDJPFSYOUjs.localRequire.call(void 0, "svelte/compiler");
+        sveltePreprocessor = sveltePreprocessor || _chunkDJPFSYOUjs.localRequire.call(void 0, "svelte-preprocess");
         if (!svelte) {
           return {
             errors: [{ text: `You need to install "svelte" in your project` }]
@@ -1482,7 +1483,7 @@ var sveltePlugin = ({
 };
 
 // src/esbuild/index.ts
-var import_consola = _chunkYKICXVH5js.__toESM.call(void 0, require_consola());
+var import_consola = _chunkDJPFSYOUjs.__toESM.call(void 0, require_consola());
 
 // src/esbuild/swc.ts
 
@@ -1490,7 +1491,7 @@ var swcPlugin = ({ logger: logger3 }) => {
   return {
     name: "swc",
     setup(build2) {
-      const swc = _chunkYKICXVH5js.localRequire.call(void 0, "@swc/core");
+      const swc = _chunkDJPFSYOUjs.localRequire.call(void 0, "@swc/core");
       if (!swc) {
         logger3.warn(
           build2.initialOptions.format,
@@ -1544,7 +1545,7 @@ var nativeNodeModulesPlugin = () => {
     name: "native-node-modules",
     setup(build2) {
       build2.onResolve({ filter: /\.node$/, namespace: "file" }, (args) => {
-        const resolvedId = _chunkYKICXVH5js.__require.resolve(args.path, {
+        const resolvedId = _chunkDJPFSYOUjs.__require.resolve(args.path, {
           paths: [args.resolveDir]
         });
         if (resolvedId.endsWith(".node")) {
@@ -1583,8 +1584,8 @@ var nativeNodeModulesPlugin = () => {
 
 // src/esbuild/index.ts
 var getOutputExtensionMap = (options, format, pkgType) => {
-  const outExtension = options.outExtension || _chunkYKICXVH5js.defaultOutExtension;
-  const defaultExtension = _chunkYKICXVH5js.defaultOutExtension.call(void 0, { format, pkgType });
+  const outExtension = options.outExtension || _chunkDJPFSYOUjs.defaultOutExtension;
+  const defaultExtension = _chunkDJPFSYOUjs.defaultOutExtension.call(void 0, { format, pkgType });
   const extension = outExtension({ options, format, pkgType });
   return {
     ".js": extension.js || defaultExtension.js
@@ -1598,7 +1599,7 @@ var generateExternal = async (external) => {
       continue;
     }
     let pkgPath = _path2.default.isAbsolute(item) ? _path2.default.dirname(item) : _path2.default.dirname(_path2.default.resolve(process.cwd(), item));
-    const deps = await _chunk6RV4DAX3js.getProductionDeps.call(void 0, pkgPath);
+    const deps = await _chunkBWKNFVFOjs.getProductionDeps.call(void 0, pkgPath);
     result.push(...deps);
   }
   return result;
@@ -1610,8 +1611,8 @@ async function runEsbuild(options, {
   buildDependencies,
   pluginContainer
 }) {
-  const pkg = await _chunk6RV4DAX3js.loadPkg.call(void 0, process.cwd());
-  const deps = await _chunk6RV4DAX3js.getProductionDeps.call(void 0, process.cwd());
+  const pkg = await _chunkBWKNFVFOjs.loadPkg.call(void 0, process.cwd());
+  const deps = await _chunkBWKNFVFOjs.getProductionDeps.call(void 0, process.cwd());
   const external = [
     // Exclude dependencies, e.g. `lodash`, `lodash/get`
     ...deps.map((dep) => new RegExp(`^${dep}($|\\/|\\\\)`)),
@@ -1707,7 +1708,7 @@ async function runEsbuild(options, {
         ...loader
       },
       mainFields: platform === "node" ? ["module", "main"] : ["browser", "module", "main"],
-      plugins: esbuildPlugins.filter(_chunkYKICXVH5js.truthy),
+      plugins: esbuildPlugins.filter(_chunkDJPFSYOUjs.truthy),
       define: {
         TSUP_FORMAT: JSON.stringify(format),
         ...format === "cjs" && injectShims ? {
@@ -1745,7 +1746,7 @@ async function runEsbuild(options, {
     logger3.error(format, "Build failed");
     throw error;
   }
-  if (result && result.warnings && !_chunk6RV4DAX3js.getSilent.call(void 0, )) {
+  if (result && result.warnings && !_chunkBWKNFVFOjs.getSilent.call(void 0, )) {
     const messages = result.warnings.filter((warning) => {
       if (warning.text.includes(
         `This call to "require" will not be bundled because`
@@ -2004,9 +2005,9 @@ var es5 = () => {
       if (!enabled || !/\.(cjs|js)$/.test(info.path)) {
         return;
       }
-      const swc = _chunkYKICXVH5js.localRequire.call(void 0, "@swc/core");
+      const swc = _chunkDJPFSYOUjs.localRequire.call(void 0, "@swc/core");
       if (!swc) {
-        throw new (0, _chunkAQ6YY5U3js.PrettyError)(
+        throw new (0, _chunk4SM4HQB2js.PrettyError)(
           "@swc/core is required for es5 target. Please install it with `npm install @swc/core -D`"
         );
       }
@@ -2040,7 +2041,7 @@ var sizeReporter = () => {
   return {
     name: "size-reporter",
     buildEnd({ writtenFiles }) {
-      _chunk6RV4DAX3js.reportSize.call(void 0, 
+      _chunkBWKNFVFOjs.reportSize.call(void 0, 
         this.logger,
         this.format,
         writtenFiles.reduce((res, file) => {
@@ -2055,7 +2056,7 @@ var sizeReporter = () => {
 };
 
 // src/plugins/tree-shaking.ts
-var import_rollup_plugin_hashbang = _chunkYKICXVH5js.__toESM.call(void 0, _chunk6RV4DAX3js.require_dist.call(void 0, ));
+var import_rollup_plugin_hashbang = _chunkDJPFSYOUjs.__toESM.call(void 0, _chunkBWKNFVFOjs.require_dist.call(void 0, ));
 var _rollup = require('rollup');
 var treeShakingPlugin = ({
   treeshake,
@@ -2121,10 +2122,10 @@ var copyPublicDir = (publicDir, outDir) => {
 var isInPublicDir = (publicDir, filePath) => {
   if (!publicDir)
     return false;
-  const publicPath = _chunkYKICXVH5js.slash.call(void 0, 
+  const publicPath = _chunkDJPFSYOUjs.slash.call(void 0, 
     _path2.default.resolve(publicDir === true ? "public" : publicDir)
   );
-  return _chunkYKICXVH5js.slash.call(void 0, _path2.default.resolve(filePath)).startsWith(`${publicPath}/`);
+  return _chunkDJPFSYOUjs.slash.call(void 0, _path2.default.resolve(filePath)).startsWith(`${publicPath}/`);
 };
 
 // src/plugins/terser.ts
@@ -2140,9 +2141,9 @@ var terserPlugin = ({
     async renderChunk(code, info) {
       if (minifyOptions !== "terser" || !/\.(cjs|js|mjs)$/.test(info.path))
         return;
-      const terser = _chunkYKICXVH5js.localRequire.call(void 0, "terser");
+      const terser = _chunkDJPFSYOUjs.localRequire.call(void 0, "terser");
       if (!terser) {
-        throw new (0, _chunkAQ6YY5U3js.PrettyError)(
+        throw new (0, _chunk4SM4HQB2js.PrettyError)(
           "terser is required for terser minification. Please install it with `npm install terser -D`"
         );
       }
@@ -2175,7 +2176,7 @@ var terserPlugin = ({
 
 // src/tsc.ts
 var _typescript = require('typescript'); var _typescript2 = _interopRequireDefault(_typescript);
-var logger = _chunk6RV4DAX3js.createLogger.call(void 0, );
+var logger = _chunkBWKNFVFOjs.createLogger.call(void 0, );
 var AliasPool = (_class = class {constructor() { _class.prototype.__init.call(this); }
   __init() {this.seen = /* @__PURE__ */ new Set()}
   assign(name) {
@@ -2199,7 +2200,7 @@ function getExports(program, fileMapping) {
   let assignAlias = aliasPool.assign.bind(aliasPool);
   function extractExports(sourceFileName) {
     const cwd = program.getCurrentDirectory();
-    sourceFileName = _chunkYKICXVH5js.toAbsolutePath.call(void 0, sourceFileName, cwd);
+    sourceFileName = _chunkDJPFSYOUjs.toAbsolutePath.call(void 0, sourceFileName, cwd);
     const sourceFile = program.getSourceFile(sourceFileName);
     if (!sourceFile) {
       return [];
@@ -2237,8 +2238,8 @@ function emitDtsFiles(program, host) {
     if (sourceFileName && !fileName.endsWith(".map")) {
       const cwd = program.getCurrentDirectory();
       fileMapping.set(
-        _chunkYKICXVH5js.toAbsolutePath.call(void 0, sourceFileName, cwd),
-        _chunkYKICXVH5js.toAbsolutePath.call(void 0, fileName, cwd)
+        _chunkDJPFSYOUjs.toAbsolutePath.call(void 0, sourceFileName, cwd),
+        _chunkDJPFSYOUjs.toAbsolutePath.call(void 0, fileName, cwd)
       );
     }
     return host.writeFile(
@@ -2292,11 +2293,11 @@ var parseCompilerOptions = (compilerOptions) => {
   );
   return parsed.options;
 };
-function emit(entry, dts) {
-  let declarationDir = _chunkYKICXVH5js.ensureTempDeclarationDir.call(void 0, );
-  let fileNames = Array.isArray(entry) ? entry : Object.values(entry);
+function emit(entry, compilerOptions) {
+  let declarationDir = _chunkDJPFSYOUjs.ensureTempDeclarationDir.call(void 0, );
+  let fileNames = Object.values(entry);
   let options = parseCompilerOptions({
-    ..._optionalChain([dts, 'optionalAccess', _16 => _16.compilerOptions]),
+    ...compilerOptions,
     // Enable declaration emit and disable javascript emit
     noEmit: false,
     declaration: true,
@@ -2316,11 +2317,15 @@ function runTypeScriptCompiler(options) {
       return `${Math.floor(Date.now() - start)}ms`;
     };
     logger.info("tsc", "Build start");
-    const exports = emit(options.entry, options.experimentalDts);
+    const dtsOptions = options.experimentalDts;
+    const exports = emit(
+      _chunkDJPFSYOUjs.normalizeExperimentalDtsEntry.call(void 0, options),
+      dtsOptions.compilerOptions
+    );
     logger.success("tsc", `\u26A1\uFE0F Build success in ${getDuration()}`);
     return exports;
   } catch (error) {
-    _chunkAQ6YY5U3js.handleError.call(void 0, error);
+    _chunk4SM4HQB2js.handleError.call(void 0, error);
     logger.error("tsc", "Build error");
   }
 }
@@ -2337,16 +2342,16 @@ var _apiextractor = require('@microsoft/api-extractor');
 function formatAggregationExports(exports, declarationDirPath) {
   const lines = exports.map(
     (declaration) => formatAggregationExport(declaration, declarationDirPath)
-  ).filter(_chunkYKICXVH5js.truthy);
+  ).filter(_chunkDJPFSYOUjs.truthy);
   if (lines.length === 0) {
     lines.push("export {};");
   }
   return lines.join("\n") + "\n";
 }
 function formatAggregationExport(declaration, declarationDirPath) {
-  let dest = _chunkYKICXVH5js.trimDtsExtension.call(void 0, 
+  let dest = _chunkDJPFSYOUjs.trimDtsExtension.call(void 0, 
     "./" + _path2.default.posix.normalize(
-      _chunkYKICXVH5js.slash.call(void 0, _path2.default.relative(declarationDirPath, declaration.destFileName))
+      _chunkDJPFSYOUjs.slash.call(void 0, _path2.default.relative(declarationDirPath, declaration.destFileName))
     )
   );
   if (declaration.kind === "module") {
@@ -2360,22 +2365,22 @@ function formatAggregationExport(declaration, declarationDirPath) {
       declaration.name === declaration.alias ? "" : `as ${declaration.alias}`,
       "} from",
       `'${dest}';`
-    ].filter(_chunkYKICXVH5js.truthy).join(" ");
+    ].filter(_chunkDJPFSYOUjs.truthy).join(" ");
   } else {
     throw new Error("Unknown declaration");
   }
 }
 function formatDistributionExports(exports, fromFilePath, toFilePath) {
-  let importPath = _chunkYKICXVH5js.trimDtsExtension.call(void 0, 
+  let importPath = _chunkDJPFSYOUjs.trimDtsExtension.call(void 0, 
     _path2.default.posix.relative(
-      _path2.default.posix.dirname(_path2.default.posix.normalize(_chunkYKICXVH5js.slash.call(void 0, fromFilePath))),
-      _path2.default.posix.normalize(_chunkYKICXVH5js.slash.call(void 0, toFilePath))
+      _path2.default.posix.dirname(_path2.default.posix.normalize(_chunkDJPFSYOUjs.slash.call(void 0, fromFilePath))),
+      _path2.default.posix.normalize(_chunkDJPFSYOUjs.slash.call(void 0, toFilePath))
     )
   );
   if (!importPath.match(/^\.+\//)) {
     importPath = "./" + importPath;
   }
-  const lines = exports.map((declaration) => formatDistributionExport(declaration, importPath)).filter(_chunkYKICXVH5js.truthy);
+  const lines = exports.map((declaration) => formatDistributionExport(declaration, importPath)).filter(_chunkDJPFSYOUjs.truthy);
   if (lines.length === 0) {
     lines.push("export {};");
   }
@@ -2391,7 +2396,7 @@ function formatDistributionExport(declaration, dest) {
       declaration.name === declaration.alias ? "" : `as ${declaration.name}`,
       "} from",
       `'${dest}';`
-    ].filter(_chunkYKICXVH5js.truthy).join(" ");
+    ].filter(_chunkDJPFSYOUjs.truthy).join(" ");
   }
   if (declaration.kind === "module") {
     return `export * from '${declaration.moduleName}';`;
@@ -2400,7 +2405,7 @@ function formatDistributionExport(declaration, dest) {
 }
 
 // src/api-extractor.ts
-var logger2 = _chunk6RV4DAX3js.createLogger.call(void 0, );
+var logger2 = _chunkBWKNFVFOjs.createLogger.call(void 0, );
 function rollupDtsFile(inputFilePath, outputFilePath, tsconfigFilePath) {
   let cwd = process.cwd();
   let packageJsonFullPath = _path2.default.join(cwd, "package.json");
@@ -2441,21 +2446,16 @@ function rollupDtsFile(inputFilePath, outputFilePath, tsconfigFilePath) {
   }
 }
 async function rollupDtsFiles(options, exports, format) {
-  const dtsOptions = options.experimentalDts || {};
-  dtsOptions.entry = dtsOptions.entry || options.entry;
-  if (Array.isArray(dtsOptions.entry) && dtsOptions.entry.length > 1) {
-    dtsOptions.entry = _chunkYKICXVH5js.toObjectEntry.call(void 0, dtsOptions.entry);
-  }
-  let declarationDir = _chunkYKICXVH5js.ensureTempDeclarationDir.call(void 0, );
+  let declarationDir = _chunkDJPFSYOUjs.ensureTempDeclarationDir.call(void 0, );
   let outDir = options.outDir || "dist";
-  let pkg = await _chunk6RV4DAX3js.loadPkg.call(void 0, process.cwd());
-  let dtsExtension = _chunkYKICXVH5js.defaultOutExtension.call(void 0, { format, pkgType: pkg.type }).dts;
+  let pkg = await _chunkBWKNFVFOjs.loadPkg.call(void 0, process.cwd());
+  let dtsExtension = _chunkDJPFSYOUjs.defaultOutExtension.call(void 0, { format, pkgType: pkg.type }).dts;
   let dtsInputFilePath = _path2.default.join(
     declarationDir,
     "_tsup-dts-aggregation" + dtsExtension
   );
   let dtsOutputFilePath = _path2.default.join(outDir, "_tsup-dts-rollup" + dtsExtension);
-  _chunkYKICXVH5js.writeFileSync.call(void 0, 
+  _chunkDJPFSYOUjs.writeFileSync.call(void 0, 
     dtsInputFilePath,
     formatAggregationExports(exports, declarationDir)
   );
@@ -2464,13 +2464,14 @@ async function rollupDtsFiles(options, exports, format) {
     dtsOutputFilePath,
     options.tsconfig || "tsconfig.json"
   );
-  for (let [out, sourceFileName] of Object.entries(dtsOptions.entry)) {
-    sourceFileName = _chunkYKICXVH5js.toAbsolutePath.call(void 0, sourceFileName);
+  const entry = _chunkDJPFSYOUjs.normalizeExperimentalDtsEntry.call(void 0, options);
+  for (let [out, sourceFileName] of Object.entries(entry)) {
+    sourceFileName = _chunkDJPFSYOUjs.toAbsolutePath.call(void 0, sourceFileName);
     const outFileName = _path2.default.join(outDir, out + dtsExtension);
     const declarations = exports.filter(
       (declaration) => declaration.sourceFileName === sourceFileName
     );
-    _chunkYKICXVH5js.writeFileSync.call(void 0, 
+    _chunkDJPFSYOUjs.writeFileSync.call(void 0, 
       outFileName,
       formatDistributionExports(declarations, outFileName, dtsOutputFilePath)
     );
@@ -2491,7 +2492,7 @@ async function runDtsRollup(options, exports) {
     }
     logger2.success("dts", `\u26A1\uFE0F Build success in ${getDuration()}`);
   } catch (error) {
-    _chunkAQ6YY5U3js.handleError.call(void 0, error);
+    _chunk4SM4HQB2js.handleError.call(void 0, error);
     logger2.error("dts", "Build error");
   }
 }
@@ -2501,7 +2502,7 @@ var cjsInterop = () => {
   return {
     name: "cjs-interop",
     async renderChunk(code, info) {
-      if (!this.options.cjsInterop || this.format !== "cjs" || info.type !== "chunk" || !/\.(js|cjs)$/.test(info.path) || !info.entryPoint || _optionalChain([info, 'access', _17 => _17.exports, 'optionalAccess', _18 => _18.length]) !== 1 || info.exports[0] !== "default") {
+      if (!this.options.cjsInterop || this.format !== "cjs" || info.type !== "chunk" || !/\.(js|cjs)$/.test(info.path) || !info.entryPoint || _optionalChain([info, 'access', _16 => _16.exports, 'optionalAccess', _17 => _17.length]) !== 1 || info.exports[0] !== "default") {
         return;
       }
       return {
@@ -2533,15 +2534,15 @@ var normalizeOptions = async (logger3, optionsFromConfigFile, optionsOverride) =
     dts: typeof _options.dts === "boolean" ? _options.dts ? {} : void 0 : typeof _options.dts === "string" ? { entry: _options.dts } : _options.dts,
     experimentalDts: typeof _options.experimentalDts === "boolean" ? _options.experimentalDts ? {} : void 0 : typeof _options.experimentalDts === "string" ? { entry: _options.experimentalDts } : _options.experimentalDts
   };
-  _chunk6RV4DAX3js.setSilent.call(void 0, options.silent);
+  _chunkBWKNFVFOjs.setSilent.call(void 0, options.silent);
   const entry = options.entry || options.entryPoints;
   if (!entry || Object.keys(entry).length === 0) {
-    throw new (0, _chunkAQ6YY5U3js.PrettyError)(`No input files, try "tsup <your-file>" instead`);
+    throw new (0, _chunk4SM4HQB2js.PrettyError)(`No input files, try "tsup <your-file>" instead`);
   }
   if (Array.isArray(entry)) {
     options.entry = await _globby2.default.call(void 0, entry);
     if (!options.entry || options.entry.length === 0) {
-      throw new (0, _chunkAQ6YY5U3js.PrettyError)(`Cannot find ${entry}`);
+      throw new (0, _chunk4SM4HQB2js.PrettyError)(`Cannot find ${entry}`);
     } else {
       logger3.info("CLI", `Building entry: ${options.entry.join(", ")}`);
     }
@@ -2549,7 +2550,7 @@ var normalizeOptions = async (logger3, optionsFromConfigFile, optionsOverride) =
     Object.keys(entry).forEach((alias) => {
       const filename = entry[alias];
       if (!_fs2.default.existsSync(filename)) {
-        throw new (0, _chunkAQ6YY5U3js.PrettyError)(`Cannot find ${alias}: ${filename}`);
+        throw new (0, _chunk4SM4HQB2js.PrettyError)(`Cannot find ${alias}: ${filename}`);
       }
     });
     options.entry = entry;
@@ -2562,8 +2563,8 @@ var normalizeOptions = async (logger3, optionsFromConfigFile, optionsOverride) =
       `Using tsconfig: ${_path2.default.relative(process.cwd(), tsconfig.path)}`
     );
     options.tsconfig = tsconfig.path;
-    options.tsconfigResolvePaths = _optionalChain([tsconfig, 'access', _19 => _19.data, 'optionalAccess', _20 => _20.compilerOptions, 'optionalAccess', _21 => _21.paths]) || {};
-    options.tsconfigDecoratorMetadata = _optionalChain([tsconfig, 'access', _22 => _22.data, 'optionalAccess', _23 => _23.compilerOptions, 'optionalAccess', _24 => _24.emitDecoratorMetadata]);
+    options.tsconfigResolvePaths = _optionalChain([tsconfig, 'access', _18 => _18.data, 'optionalAccess', _19 => _19.compilerOptions, 'optionalAccess', _20 => _20.paths]) || {};
+    options.tsconfigDecoratorMetadata = _optionalChain([tsconfig, 'access', _21 => _21.data, 'optionalAccess', _22 => _22.compilerOptions, 'optionalAccess', _23 => _23.emitDecoratorMetadata]);
     if (options.dts) {
       options.dts.compilerOptions = {
         ...tsconfig.data.compilerOptions || {},
@@ -2575,12 +2576,20 @@ var normalizeOptions = async (logger3, optionsFromConfigFile, optionsOverride) =
         ...tsconfig.data.compilerOptions || {},
         ...options.experimentalDts.compilerOptions || {}
       };
+      let entry2 = options.experimentalDts.entry || options.entry;
+      if (typeof entry2 === "string") {
+        entry2 = [entry2];
+      }
+      if (Array.isArray(entry2)) {
+        entry2 = _chunkDJPFSYOUjs.toObjectEntry.call(void 0, entry2);
+      }
+      options.experimentalDts.entry = entry2;
     }
     if (!options.target) {
-      options.target = _optionalChain([tsconfig, 'access', _25 => _25.data, 'optionalAccess', _26 => _26.compilerOptions, 'optionalAccess', _27 => _27.target, 'optionalAccess', _28 => _28.toLowerCase, 'call', _29 => _29()]);
+      options.target = _optionalChain([tsconfig, 'access', _24 => _24.data, 'optionalAccess', _25 => _25.compilerOptions, 'optionalAccess', _26 => _26.target, 'optionalAccess', _27 => _27.toLowerCase, 'call', _28 => _28()]);
     }
   } else if (options.tsconfig) {
-    throw new (0, _chunkAQ6YY5U3js.PrettyError)(`Cannot find tsconfig: ${options.tsconfig}`);
+    throw new (0, _chunk4SM4HQB2js.PrettyError)(`Cannot find tsconfig: ${options.tsconfig}`);
   }
   if (!options.target) {
     options.target = "node16";
@@ -2588,7 +2597,7 @@ var normalizeOptions = async (logger3, optionsFromConfigFile, optionsOverride) =
   return options;
 };
 async function build(_options) {
-  const config = _options.config === false ? {} : await _chunk6RV4DAX3js.loadTsupConfig.call(void 0, 
+  const config = _options.config === false ? {} : await _chunkBWKNFVFOjs.loadTsupConfig.call(void 0, 
     process.cwd(),
     _options.config === true ? void 0 : _options.config
   );
@@ -2596,7 +2605,7 @@ async function build(_options) {
   await Promise.all(
     [...Array.isArray(configData) ? configData : [configData]].map(
       async (item) => {
-        const logger3 = _chunk6RV4DAX3js.createLogger.call(void 0, _optionalChain([item, 'optionalAccess', _30 => _30.name]));
+        const logger3 = _chunkBWKNFVFOjs.createLogger.call(void 0, _optionalChain([item, 'optionalAccess', _29 => _29.name]));
         const options = await normalizeOptions(logger3, item, _options);
         logger3.info("CLI", `tsup v${_chunkUWWD4V4Jjs.version}`);
         if (config.path) {
@@ -2619,7 +2628,7 @@ async function build(_options) {
             await new Promise((resolve, reject) => {
               const worker = new (0, _worker_threads.Worker)(_path2.default.join(__dirname, "./rollup.js"));
               worker.postMessage({
-                configName: _optionalChain([item, 'optionalAccess', _31 => _31.name]),
+                configName: _optionalChain([item, 'optionalAccess', _30 => _30.name]),
                 options: {
                   ...options,
                   // functions cannot be cloned
@@ -2651,11 +2660,11 @@ async function build(_options) {
           }
         };
         const mainTasks = async () => {
-          if (!_optionalChain([options, 'access', _32 => _32.dts, 'optionalAccess', _33 => _33.only])) {
+          if (!_optionalChain([options, 'access', _31 => _31.dts, 'optionalAccess', _32 => _32.only])) {
             let onSuccessProcess;
             let onSuccessCleanup;
             const buildDependencies = /* @__PURE__ */ new Set();
-            let depsHash = await _chunk6RV4DAX3js.getAllDepsHash.call(void 0, process.cwd());
+            let depsHash = await _chunkBWKNFVFOjs.getAllDepsHash.call(void 0, process.cwd());
             const doOnSuccessCleanup = async () => {
               if (onSuccessProcess) {
                 await killProcess({
@@ -2668,12 +2677,12 @@ async function build(_options) {
               onSuccessProcess = void 0;
               onSuccessCleanup = void 0;
             };
-            const debouncedBuildAll = _chunkYKICXVH5js.debouncePromise.call(void 0, 
+            const debouncedBuildAll = _chunkDJPFSYOUjs.debouncePromise.call(void 0, 
               () => {
                 return buildAll();
               },
               100,
-              _chunkAQ6YY5U3js.handleError
+              _chunk4SM4HQB2js.handleError
             );
             const buildAll = async () => {
               await doOnSuccessCleanup();
@@ -2684,7 +2693,7 @@ async function build(_options) {
                 if (options.dts) {
                   extraPatterns.unshift("!**/*.d.{ts,cts,mts}");
                 }
-                await _chunkYKICXVH5js.removeFiles.call(void 0, ["**/*", ...extraPatterns], options.outDir);
+                await _chunkDJPFSYOUjs.removeFiles.call(void 0, ["**/*", ...extraPatterns], options.outDir);
                 logger3.info("CLI", "Cleaning output folder");
               }
               const css = /* @__PURE__ */ new Map();
@@ -2767,7 +2776,7 @@ async function build(_options) {
                 ignored
               });
               watcher.on("all", async (type, file) => {
-                file = _chunkYKICXVH5js.slash.call(void 0, file);
+                file = _chunkDJPFSYOUjs.slash.call(void 0, file);
                 if (options.publicDir && isInPublicDir(options.publicDir, file)) {
                   logger3.info("CLI", `Change in public dir: ${file}`);
                   copyPublicDir(options.publicDir, options.outDir);
@@ -2776,7 +2785,7 @@ async function build(_options) {
                 let shouldSkipChange = false;
                 if (options.watch === true) {
                   if (file === "package.json" && !buildDependencies.has(file)) {
-                    const currentHash = await _chunk6RV4DAX3js.getAllDepsHash.call(void 0, process.cwd());
+                    const currentHash = await _chunkBWKNFVFOjs.getAllDepsHash.call(void 0, process.cwd());
                     shouldSkipChange = currentHash === depsHash;
                     depsHash = currentHash;
                   } else if (!buildDependencies.has(file)) {

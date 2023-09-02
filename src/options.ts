@@ -247,9 +247,7 @@ export type NormalizedOptions = Omit<
   'dts' | 'format'
 > & {
   dts?: DtsConfig
-  experimentalDts?: ExperimentalDtsConfig & {
-    entry: { [entryAlias: string]: string }
-  }
+  experimentalDts?: ExperimentalDtsConfig
   tsconfigResolvePaths: Record<string, string[]>
   tsconfigDecoratorMetadata?: boolean
   format: Format[]

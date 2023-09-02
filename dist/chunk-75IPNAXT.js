@@ -5,10 +5,10 @@ var _chunkUWWD4V4Jjs = require('./chunk-UWWD4V4J.js');
 
 
 
-var _chunkYKICXVH5js = require('./chunk-YKICXVH5.js');
+var _chunkDJPFSYOUjs = require('./chunk-DJPFSYOU.js');
 
 // node_modules/.pnpm/flat@5.0.2/node_modules/flat/index.js
-var require_flat = _chunkYKICXVH5js.__commonJS.call(void 0, {
+var require_flat = _chunkDJPFSYOUjs.__commonJS.call(void 0, {
   "node_modules/.pnpm/flat@5.0.2/node_modules/flat/index.js"(exports, module) {
     "use strict";
     module.exports = flatten;
@@ -121,7 +121,7 @@ var require_flat = _chunkYKICXVH5js.__commonJS.call(void 0, {
 });
 
 // src/cli-main.ts
-var import_flat = _chunkYKICXVH5js.__toESM.call(void 0, require_flat());
+var import_flat = _chunkDJPFSYOUjs.__toESM.call(void 0, require_flat());
 var _cac = require('cac');
 function ensureArray(input) {
   return Array.isArray(input) ? input : input.split(",");
@@ -176,7 +176,7 @@ async function main(options = {}) {
       ...flags
     });
     if (!options.entry && files.length > 0) {
-      options.entry = files.map(_chunkYKICXVH5js.slash);
+      options.entry = files.map(_chunkDJPFSYOUjs.slash);
     }
     if (flags.format) {
       const format = ensureArray(flags.format);

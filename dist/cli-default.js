@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 "use strict";
 
-var _chunkUW2V5D4Qjs = require('./chunk-UW2V5D4Q.js');
+var _chunk75IPNAXTjs = require('./chunk-75IPNAXT.js');
 require('./chunk-UWWD4V4J.js');
 
 
-var _chunkAQ6YY5U3js = require('./chunk-AQ6YY5U3.js');
-require('./chunk-YKICXVH5.js');
+var _chunk4SM4HQB2js = require('./chunk-4SM4HQB2.js');
+require('./chunk-DJPFSYOU.js');
 
 // src/cli-default.ts
-_chunkUW2V5D4Qjs.main.call(void 0, ).catch(_chunkAQ6YY5U3js.handleError);
+_chunk75IPNAXTjs.main.call(void 0, ).catch(_chunk4SM4HQB2js.handleError);

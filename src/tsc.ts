@@ -3,7 +3,11 @@ import { handleError } from './errors'
 import { ExportDeclaration } from './exports'
 import { createLogger } from './log'
 import { NormalizedOptions } from './options'
-import { ensureTempDeclarationDir, toAbsolutePath } from './utils'
+import {
+  ensureTempDeclarationDir,
+  normalizeExperimentalDtsEntry,
+  toAbsolutePath,
+} from './utils'
 
 const logger = createLogger()
 
@@ -199,7 +203,10 @@ export function runTypeScriptCompiler(options: NormalizedOptions) {
     }
     logger.info('tsc', 'Build start')
     const dtsOptions = options.experimentalDts!
-    const exports = emit(dtsOptions.entry, dtsOptions.compilerOptions)
+    const exports = emit(
+      normalizeExperimentalDtsEntry(options),
+      dtsOptions.compilerOptions
+    )
     logger.success('tsc', `⚡️ Build success in ${getDuration()}`)
     return exports
   } catch (error) {
