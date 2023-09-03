@@ -8,6 +8,7 @@ import {
   normalizeExperimentalDtsEntry,
   toAbsolutePath,
 } from './utils'
+import { loadTsConfig } from 'bundle-require'
 
 const logger = createLogger()
 
@@ -45,6 +46,7 @@ function getExports(
 
   function extractExports(sourceFileName: string): ExportDeclaration[] {
     const cwd = program.getCurrentDirectory()
+
     sourceFileName = toAbsolutePath(sourceFileName, cwd)
 
     const sourceFile = program.getSourceFile(sourceFileName)
@@ -173,10 +175,20 @@ const parseCompilerOptions = (
   return parsed.options
 }
 
-function emit(entry: { [entryAlias: string]: string }, compilerOptions?: any) {
+function emit(compilerOptions?: any, tsconfig?: string) {
+  let cwd = process.cwd()
+  let rawTsconfig = loadTsConfig(cwd, tsconfig)
+  if (!rawTsconfig) {
+    throw new Error(`Unable to find ${tsconfig || 'tsconfig.json'} in ${cwd}`)
+  }
+
   let declarationDir = ensureTempDeclarationDir()
 
-  let fileNames: string[] = Object.values(entry)
+  let parsedTsconfig = ts.parseJsonConfigFileContent(
+    rawTsconfig.data,
+    ts.sys,
+    cwd
+  )
 
   let options: ts.CompilerOptions = parseCompilerOptions({
     ...compilerOptions,
@@ -189,7 +201,11 @@ function emit(entry: { [entryAlias: string]: string }, compilerOptions?: any) {
     emitDeclarationOnly: true,
   })
   let host: ts.CompilerHost = ts.createCompilerHost(options)
-  let program: ts.Program = ts.createProgram(fileNames, options, host)
+  let program: ts.Program = ts.createProgram(
+    parsedTsconfig.fileNames,
+    options,
+    host
+  )
 
   let fileMapping = emitDtsFiles(program, host)
   return getExports(program, fileMapping)
@@ -203,10 +219,7 @@ export function runTypeScriptCompiler(options: NormalizedOptions) {
     }
     logger.info('tsc', 'Build start')
     const dtsOptions = options.experimentalDts!
-    const exports = emit(
-      normalizeExperimentalDtsEntry(options),
-      dtsOptions.compilerOptions
-    )
+    const exports = emit(dtsOptions.compilerOptions, options.tsconfig)
     logger.success('tsc', `⚡️ Build success in ${getDuration()}`)
     return exports
   } catch (error) {

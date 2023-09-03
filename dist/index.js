@@ -2176,6 +2176,7 @@ var terserPlugin = ({
 
 // src/tsc.ts
 var _typescript = require('typescript'); var _typescript2 = _interopRequireDefault(_typescript);
+
 var logger = _chunkBWKNFVFOjs.createLogger.call(void 0, );
 var AliasPool = (_class = class {constructor() { _class.prototype.__init.call(this); }
   __init() {this.seen = /* @__PURE__ */ new Set()}
@@ -2293,9 +2294,17 @@ var parseCompilerOptions = (compilerOptions) => {
   );
   return parsed.options;
 };
-function emit(entry, compilerOptions) {
+function emit(entry, compilerOptions, tsconfig) {
+  let t = _bundlerequire.loadTsConfig.call(void 0, process.cwd(), tsconfig);
   let declarationDir = _chunkDJPFSYOUjs.ensureTempDeclarationDir.call(void 0, );
   let fileNames = Object.values(entry);
+  console.log("compilerOptions", compilerOptions);
+  let parsed = _typescript2.default.parseJsonConfigFileContent(
+    t.data,
+    _typescript2.default.sys,
+    "./"
+  );
+  console.log("parsed", parsed);
   let options = parseCompilerOptions({
     ...compilerOptions,
     // Enable declaration emit and disable javascript emit
@@ -2306,7 +2315,11 @@ function emit(entry, compilerOptions) {
     emitDeclarationOnly: true
   });
   let host = _typescript2.default.createCompilerHost(options);
-  let program = _typescript2.default.createProgram(fileNames, options, host);
+  let program = _typescript2.default.createProgram(parsed.fileNames, options);
+  console.log("options", options);
+  console.log("fileNames", fileNames);
+  console.log("program.getCurrentDirectory():", program.getCurrentDirectory());
+  console.log("process.cwd:", process.cwd());
   let fileMapping = emitDtsFiles(program, host);
   return getExports(program, fileMapping);
 }
@@ -2320,7 +2333,8 @@ function runTypeScriptCompiler(options) {
     const dtsOptions = options.experimentalDts;
     const exports = emit(
       _chunkDJPFSYOUjs.normalizeExperimentalDtsEntry.call(void 0, options),
-      dtsOptions.compilerOptions
+      dtsOptions.compilerOptions,
+      options.tsconfig
     );
     logger.success("tsc", `\u26A1\uFE0F Build success in ${getDuration()}`);
     return exports;
