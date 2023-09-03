@@ -2294,17 +2294,18 @@ var parseCompilerOptions = (compilerOptions) => {
   );
   return parsed.options;
 };
-function emit(entry, compilerOptions, tsconfig) {
-  let t = _bundlerequire.loadTsConfig.call(void 0, process.cwd(), tsconfig);
+function emit(compilerOptions, tsconfig) {
+  let cwd = process.cwd();
+  let rawTsconfig = _bundlerequire.loadTsConfig.call(void 0, cwd, tsconfig);
+  if (!rawTsconfig) {
+    throw new Error(`Unable to find ${tsconfig || "tsconfig.json"} in ${cwd}`);
+  }
   let declarationDir = _chunkDJPFSYOUjs.ensureTempDeclarationDir.call(void 0, );
-  let fileNames = Object.values(entry);
-  console.log("compilerOptions", compilerOptions);
-  let parsed = _typescript2.default.parseJsonConfigFileContent(
-    t.data,
+  let parsedTsconfig = _typescript2.default.parseJsonConfigFileContent(
+    rawTsconfig.data,
     _typescript2.default.sys,
-    "./"
+    cwd
   );
-  console.log("parsed", parsed);
   let options = parseCompilerOptions({
     ...compilerOptions,
     // Enable declaration emit and disable javascript emit
@@ -2315,11 +2316,11 @@ function emit(entry, compilerOptions, tsconfig) {
     emitDeclarationOnly: true
   });
   let host = _typescript2.default.createCompilerHost(options);
-  let program = _typescript2.default.createProgram(parsed.fileNames, options);
-  console.log("options", options);
-  console.log("fileNames", fileNames);
-  console.log("program.getCurrentDirectory():", program.getCurrentDirectory());
-  console.log("process.cwd:", process.cwd());
+  let program = _typescript2.default.createProgram(
+    parsedTsconfig.fileNames,
+    options,
+    host
+  );
   let fileMapping = emitDtsFiles(program, host);
   return getExports(program, fileMapping);
 }
@@ -2331,11 +2332,7 @@ function runTypeScriptCompiler(options) {
     };
     logger.info("tsc", "Build start");
     const dtsOptions = options.experimentalDts;
-    const exports = emit(
-      _chunkDJPFSYOUjs.normalizeExperimentalDtsEntry.call(void 0, options),
-      dtsOptions.compilerOptions,
-      options.tsconfig
-    );
+    const exports = emit(dtsOptions.compilerOptions, options.tsconfig);
     logger.success("tsc", `\u26A1\uFE0F Build success in ${getDuration()}`);
     return exports;
   } catch (error) {
